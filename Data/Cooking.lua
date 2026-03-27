@@ -18,7 +18,7 @@ ArtisanData["Cooking"] = {
             outputItemId = 30816,
             quantity     = 60, color = "orange",
             materials = {
-                { name = "Simple Flour", itemId = 2680, quantity = 60 },
+                { name = "Simple Flour", itemId = 30817, quantity = 60 },
                 { name = "Mild Spices",  itemId = 2678,  quantity = 60 },
             },
             notes = "Both materials sold by Cooking Supply vendors near your trainer. Do NOT buy from AH.",
@@ -50,7 +50,7 @@ ArtisanData["Cooking"] = {
             quantity     = 65, color = "orange",
             materials = {
                 { name = "Clam Meat",           itemId = 5503, quantity = 65 },
-                { name = "Refreshing Spring Water", itemId = 2350, quantity = 65 },
+                { name = "Refreshing Spring Water", itemId = 159, quantity = 65 },
             },
             notes = "Clam Meat drops from crabs and clams in coastal zones. Alt: Coyote Steak (65x Coyote Meat), Longjaw Mud Snapper (65x raw fish from fishing vendors). Use whichever meat is cheapest.",
         },
@@ -151,7 +151,7 @@ ArtisanData["Cooking"] = {
             outputItemId = 27655,
             quantity     = 35, color = "orange",
             materials = {
-                { name = "Ravager Flesh", itemId = 23073, quantity = 35 },
+                { name = "Ravager Flesh", itemId = 27674, quantity = 35 },
             },
             notes = "Recipe from Innkeeper Biribi (H) or Innkeeper Kerp (A) in Hellfire Peninsula, or various vendors in Outland. Ravager Flesh drops from Ravagers in HFP - easy to farm while leveling.",
         },
@@ -161,7 +161,7 @@ ArtisanData["Cooking"] = {
             outputItemId = 27658,
             quantity     = 35, color = "orange",
             materials = {
-                { name = "Clefthoof Meat", itemId = 23074, quantity = 35 },
+                { name = "Clefthoof Meat", itemId = 27678, quantity = 35 },
             },
             notes = "Recipe from various Outland vendors. Clefthoof Meat drops from Clefthoofs in Nagrand (excellent farming area). Alt: Talbuk Steak (35x Talbuk Venison from Nagrand Talbuk mobs).",
         },
@@ -181,7 +181,7 @@ ArtisanData["Cooking"] = {
             outputItemId = 31672,
             quantity     = 15, color = "yellow",
             materials = {
-                { name = "Mok'Nathal Shortrib", itemId = 31670, quantity = 15 },
+                { name = "Raptor Ribs", itemId = 31670, quantity = 15 },
             },
             notes = "Recipe from Gnil Mok'nathal (H) in Blade's Edge Mountains at Mok'Nathal Village or from Cooking daily quest rewards. Mok'Nathal Shortrib drops from the Blade's Edge bear mobs. Alt: Spicy Crawdad (fish from Highland Mixed Schools in Terokkar) if you have Fishing. Congratulations on 375!",
         },

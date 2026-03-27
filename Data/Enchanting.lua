@@ -82,7 +82,7 @@ ArtisanData["Enchanting"] = {
             outputItemId = 11288,
             quantity     = 9, color = "orange",
             materials = {
-                { name = "Simple Wood",           itemId = 11251, quantity = 9 },
+                { name = "Simple Wood",           itemId = 4470, quantity = 9 },
                 { name = "Greater Magic Essence", itemId = 10939, quantity = 9 },
             },
             notes = "Simple Wood sold by Trade Supply vendors or found in fishing. Wands can be sold to other players.",
