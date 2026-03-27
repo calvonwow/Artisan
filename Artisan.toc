@@ -1,0 +1,23 @@
+## Interface: 20504
+## Title: |cFF00CCFFArtisan|r
+## Notes: In-game profession leveling guide for TBC Anniversary. Supports TSM for pricing and inventory.
+## Author: You
+## Version: 0.6.0
+## SavedVariables: ArtisanDB
+
+Data\Alchemy.lua
+Data\Blacksmithing.lua
+Data\Cooking.lua
+Data\Enchanting.lua
+Data\Engineering.lua
+Data\FirstAid.lua
+Data\Fishing.lua
+Data\Herbalism.lua
+Data\Jewelcrafting.lua
+Data\Leatherworking.lua
+Data\Mining.lua
+Data\Skinning.lua
+Data\Tailoring.lua
+Core\Logic.lua
+Core\UI.lua
+Artisan.lua
