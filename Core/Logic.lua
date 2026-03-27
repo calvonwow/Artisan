@@ -87,7 +87,7 @@ end
 -- ============================================================
 -- GET MATERIALS NEEDED (from current step onward)
 -- ============================================================
-function ArtisanLogic:GetMaterialsNeeded(dataKey, fromStepIndex)
+function ArtisanLogic:GetMaterialsNeeded(dataKey, fromStepIndex, maxSkillCap)
     local data = ArtisanData and ArtisanData[dataKey]
     if not data then return {} end
 
@@ -105,7 +105,10 @@ function ArtisanLogic:GetMaterialsNeeded(dataKey, fromStepIndex)
     local needed = {}
     for i = fromStepIndex, #data.steps do
         local step = data.steps[i]
-        if not step.isTrainer and not step.isGathering and step.materials then
+        -- Skip steps at or above the skill cap filter (e.g. hide 300+ content)
+        if maxSkillCap and step.skillStart >= maxSkillCap then
+            -- filtered out
+        elseif not step.isTrainer and not step.isGathering and step.materials then
             for _, mat in ipairs(step.materials) do
                 if needed[mat.itemId] then
                     needed[mat.itemId].quantity = needed[mat.itemId].quantity + mat.quantity
@@ -237,10 +240,10 @@ function ArtisanLogic:FormatMoney(copper)
     return r
 end
 
-function ArtisanLogic:GetTotalLevelingCost(dataKey, fromStep)
+function ArtisanLogic:GetTotalLevelingCost(dataKey, fromStep, maxSkillCap)
     if not self:IsTSMAvailable() then return nil end
     local total = 0
-    for _, m in ipairs(self:GetMaterialsNeeded(dataKey, fromStep)) do
+    for _, m in ipairs(self:GetMaterialsNeeded(dataKey, fromStep, maxSkillCap)) do
         if m.totalPrice then total = total + m.totalPrice end
     end
     return total > 0 and total or nil

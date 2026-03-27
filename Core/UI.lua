@@ -1188,9 +1188,11 @@ function ArtisanUI:RenderShoppingList()
         return
     end
 
-    local stepIdx   = self.currentStepIndex or 1
-    local mats      = ArtisanLogic:GetMaterialsNeeded(dataKey, stepIdx)
-    local totalCost = ArtisanLogic:GetTotalLevelingCost(dataKey, stepIdx)
+    local stepIdx    = self.currentStepIndex or 1
+    local hideAbove300 = ArtisanDB and ArtisanDB.hideAbove300
+    local maxSkillCap  = hideAbove300 and 300 or nil
+    local mats      = ArtisanLogic:GetMaterialsNeeded(dataKey, stepIdx, maxSkillCap)
+    local totalCost = ArtisanLogic:GetTotalLevelingCost(dataKey, stepIdx, maxSkillCap)
     local yOff = 0
 
     -- Header
@@ -1212,6 +1214,32 @@ function ArtisanUI:RenderShoppingList()
     hSub:SetPoint("TOPLEFT", hTitle, "BOTTOMLEFT", 0, -2)
     hSub:SetText(C.gray .. "Inventory: " .. invSrc ..
         (ArtisanLogic:IsTSMAvailable() and "   Prices: TSM DBMarket" or "") .. C.reset)
+
+    -- Hide 300+ toggle button (top-right of header)
+    local filterBtn = CreateFrame("Button", nil, hdr)
+    filterBtn:SetSize(96, 16)
+    filterBtn:SetPoint("TOPRIGHT", hdr, "TOPRIGHT", -PAD, -5)
+    local filterBtnText = filterBtn:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    filterBtnText:SetAllPoints()
+    filterBtnText:SetJustifyH("RIGHT")
+    if hideAbove300 then
+        filterBtnText:SetText(C.yellow .. "[Hide 300+: ON]" .. C.reset)
+    else
+        filterBtnText:SetText(C.gray .. "[Hide 300+: OFF]" .. C.reset)
+    end
+    filterBtn:SetScript("OnClick", function()
+        if ArtisanDB then ArtisanDB.hideAbove300 = not ArtisanDB.hideAbove300 end
+        ArtisanUI:RenderShoppingList()
+    end)
+    filterBtn:SetScript("OnEnter", function(btn)
+        GameTooltip:SetOwner(btn, "ANCHOR_RIGHT")
+        GameTooltip:AddLine("Hide materials above skill 300", 1, 1, 1)
+        GameTooltip:AddLine("Filters out steps with skillStart >= 300.", 0.8, 0.8, 0.8)
+        GameTooltip:AddLine("TBC content is usually grinded, not bought.", 0.8, 0.8, 0.8)
+        GameTooltip:Show()
+    end)
+    filterBtn:SetScript("OnLeave", function() GameTooltip:Hide() end)
+
     yOff = yOff + 42
 
     -- Column headers

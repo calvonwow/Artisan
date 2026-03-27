@@ -3,7 +3,7 @@
 -- and SetMaskTexture to clip the icon into a perfect circle.
 
 local ADDON_NAME = "Artisan"
-local DEFAULTS   = { version = "0.3.0", lastProfession = nil, minimapAngle = 225 }
+local DEFAULTS   = { version = "0.3.0", lastProfession = nil, minimapAngle = 225, hideAbove300 = false }
 
 -- ============================================================
 -- EVENTS
