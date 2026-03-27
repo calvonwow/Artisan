@@ -1215,30 +1215,30 @@ function ArtisanUI:RenderShoppingList()
     hSub:SetText(C.gray .. "Inventory: " .. invSrc ..
         (ArtisanLogic:IsTSMAvailable() and "   Prices: TSM DBMarket" or "") .. C.reset)
 
-    -- Hide 300+ toggle button (top-right of header)
-    local filterBtn = CreateFrame("Button", nil, hdr)
-    filterBtn:SetSize(96, 16)
-    filterBtn:SetPoint("TOPRIGHT", hdr, "TOPRIGHT", -PAD, -5)
-    local filterBtnText = filterBtn:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
-    filterBtnText:SetAllPoints()
-    filterBtnText:SetJustifyH("RIGHT")
+    -- Hide 300+ toggle button (top-right of header) - matches "Show All" style
+    local filterBtn = MakeFlatButton(hdr, "Hide 300+", 84, 22)
+    filterBtn:SetPoint("RIGHT", hdr, "RIGHT", -PAD, 0)
     if hideAbove300 then
-        filterBtnText:SetText(C.yellow .. "[Hide 300+: ON]" .. C.reset)
+        filterBtn._lbl:SetTextColor(1.0, 0.65, 0.0)   -- orange = active
     else
-        filterBtnText:SetText(C.gray .. "[Hide 300+: OFF]" .. C.reset)
+        filterBtn._lbl:SetTextColor(0.55, 0.55, 0.55) -- gray = off
     end
     filterBtn:SetScript("OnClick", function()
         if ArtisanDB then ArtisanDB.hideAbove300 = not ArtisanDB.hideAbove300 end
         ArtisanUI:RenderShoppingList()
     end)
-    filterBtn:SetScript("OnEnter", function(btn)
-        GameTooltip:SetOwner(btn, "ANCHOR_RIGHT")
+    filterBtn:SetScript("OnEnter", function()
+        filterBtn._bg:SetColorTexture(0.20, 0.24, 0.34, 1.0)
+        GameTooltip:SetOwner(filterBtn, "ANCHOR_RIGHT")
         GameTooltip:AddLine("Hide materials above skill 300", 1, 1, 1)
         GameTooltip:AddLine("Filters out steps with skillStart >= 300.", 0.8, 0.8, 0.8)
         GameTooltip:AddLine("TBC content is usually grinded, not bought.", 0.8, 0.8, 0.8)
         GameTooltip:Show()
     end)
-    filterBtn:SetScript("OnLeave", function() GameTooltip:Hide() end)
+    filterBtn:SetScript("OnLeave", function()
+        filterBtn._bg:SetColorTexture(0.14, 0.17, 0.23, 1.0)
+        GameTooltip:Hide()
+    end)
 
     yOff = yOff + 42
 
