@@ -181,7 +181,7 @@ ArtisanData["Cooking"] = {
             outputItemId = 31672,
             quantity     = 15, color = "yellow",
             materials = {
-                { name = "Raptor Ribs", itemId = 31670, quantity = 15 },
+                { name = "Mok'Nathal Shortrib", itemId = 38867, quantity = 15 },
             },
             notes = "Recipe from Gnil Mok'nathal (H) in Blade's Edge Mountains at Mok'Nathal Village or from Cooking daily quest rewards. Mok'Nathal Shortrib drops from the Blade's Edge bear mobs. Alt: Spicy Crawdad (fish from Highland Mixed Schools in Terokkar) if you have Fishing. Congratulations on 375!",
         },

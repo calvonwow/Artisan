@@ -24,7 +24,7 @@ local ICON_S     = 36
 local MAT_ICON   = 18
 local BAR_H      = 22
 -- Custom frame layout constants (replaces Blizzard BasicFrameTemplate chrome)
-local HEADER_H   = 34    -- title bar height in pixels
+local HEADER_H   = 48    -- title bar height in pixels
 local ACCENT_H   = 2     -- gradient accent line below header
 local TOP_CHROME = HEADER_H + ACCENT_H   -- 36px total top chrome
 local ROW1_Y     = -(TOP_CHROME + 12)    -- -48:  dropdown / status row
@@ -197,17 +197,17 @@ function ArtisanUI:CreateMainFrame()
         CreateColor(0.0, 0.80, 1.0, 1.0),
         CreateColor(0.55, 0.0, 0.88, 1.0))
 
-    -- Addon icon in header (profession icon, 20x20)
+    -- Addon icon in header (custom Artisan logo, 44x44)
     local headerIcon = f:CreateTexture(nil, "OVERLAY")
-    headerIcon:SetSize(20, 20)
-    headerIcon:SetPoint("LEFT", f, "TOPLEFT", 10, -(HEADER_H / 2))
-    headerIcon:SetTexture("Interface\\Icons\\Trade_Alchemy")
-    headerIcon:SetTexCoord(0.07, 0.93, 0.07, 0.93)
+    headerIcon:SetSize(44, 44)
+    headerIcon:SetPoint("LEFT", f, "TOPLEFT", 4, -(HEADER_H / 2))
+    headerIcon:SetTexture("Interface\\AddOns\\Artisan\\Textures\\ArtisanLogo")
+    headerIcon:SetTexCoord(0, 1, 0, 1)
     f.headerIcon = headerIcon
 
     -- Title text
     local titleText = f:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    titleText:SetPoint("LEFT", f, "TOPLEFT", 36, -(HEADER_H / 2))
+    titleText:SetPoint("LEFT", f, "TOPLEFT", 54, -(HEADER_H / 2))
     titleText:SetText("|cFF00CCFFArtisan|r  -  Profession Guide")
     f.titleText = titleText
 

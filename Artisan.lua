@@ -119,7 +119,7 @@ mbBg:SetTexture("Interface\\Minimap\\UI-Minimap-Background")
 mbBg:SetSize(20, 20)
 mbBg:SetPoint("TOPLEFT", mb, "TOPLEFT", 7, -5)
 
--- Icon (17x17 fits neatly inside the 20x20 circle background)
+-- Icon: original Trade_Alchemy icon restored
 local mbIcon = mb:CreateTexture(nil, "ARTWORK")
 mbIcon:SetTexture("Interface\\Icons\\Trade_Alchemy")
 mbIcon:SetSize(17, 17)

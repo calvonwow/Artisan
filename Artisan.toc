@@ -1,4 +1,4 @@
-## Interface: 20504
+## Interface: 20505
 ## Title: |cFF00CCFFArtisan|r
 ## Notes: In-game profession leveling guide for TBC Anniversary. Supports TSM for pricing and inventory.
 ## Author: You
